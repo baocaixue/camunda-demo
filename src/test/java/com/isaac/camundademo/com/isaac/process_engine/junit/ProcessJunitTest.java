@@ -5,7 +5,6 @@ import org.camunda.bpm.engine.ProcessEngineConfiguration;
 import org.camunda.bpm.engine.RuntimeService;
 import org.camunda.bpm.engine.TaskService;
 import org.camunda.bpm.engine.history.HistoricVariableInstance;
-import org.camunda.bpm.engine.runtime.ProcessInstance;
 import org.camunda.bpm.engine.task.Task;
 import org.camunda.bpm.engine.test.Deployment;
 import org.camunda.bpm.engine.test.ProcessEngineRule;
@@ -44,7 +43,7 @@ public class ProcessJunitTest {
      */
     @Test
     @Deployment(resources = "Test.bpmn")
-    @RequiredHistoryLevel(ProcessEngineConfiguration.HISTORY_NONE)
+    @RequiredHistoryLevel(ProcessEngineConfiguration.HISTORY_ACTIVITY)
     public void ruleUsageOfHistoryLevel() {
         RuntimeService runtimeService = processEngineRule.getRuntimeService();
         runtimeService.startProcessInstanceByKey("Test");
