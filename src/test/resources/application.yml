@@ -1,0 +1,3 @@
+logging.level:
+  org.apache.ibatis: DEBUG
+  org.activiti.engine.impl.persistence.entity: DEBUG
