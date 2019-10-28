@@ -1,4 +1,4 @@
-package com.isaac.camundademo.com.isaac.process_engine.spin;
+package com.isaac.camundademo.com.isaac.process_engine.junit.spin;
 
 import org.camunda.spin.plugin.variable.SpinValues;
 import org.camunda.spin.plugin.variable.value.JsonValue;
