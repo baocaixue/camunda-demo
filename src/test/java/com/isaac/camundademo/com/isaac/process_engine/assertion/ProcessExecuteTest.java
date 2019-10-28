@@ -5,7 +5,7 @@ import org.camunda.bpm.engine.test.Deployment;
 import org.camunda.bpm.engine.test.ProcessEngineTestCase;
 
 public class ProcessExecuteTest extends ProcessEngineTestCase {
-    @Deployment(resources = "Test.bpmn")
+    @Deployment(resources = "diagram/HelloWorld.bpmn")
     public void testDeployment() {
         runtimeService.startProcessInstanceByKey("Test");
         Task task = taskService.createTaskQuery().singleResult();

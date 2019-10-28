@@ -19,7 +19,7 @@ public class ProcessJunitTest {
     public ProcessEngineRule processEngineRule =  new ProcessEngineRule();
 
     @Test
-    @Deployment(resources = "Test.bpmn")//如果没有指定，默认 测试类名.测试方法名.bpmn20.xml(如果是类级别，是 测试类名.bpmn20.xml)
+    @Deployment(resources = "diagram/HelloWorld.bpmn")//如果没有指定，默认 测试类名.测试方法名.bpmn20.xml(如果是类级别，是 测试类名.bpmn20.xml)
     public void ruleUsageExample() {
         RuntimeService runtimeService = processEngineRule.getRuntimeService();
         runtimeService.startProcessInstanceByKey("Test");
@@ -42,7 +42,7 @@ public class ProcessJunitTest {
      * AUTO
      */
     @Test
-    @Deployment(resources = "Test.bpmn")
+    @Deployment(resources = "diagram/HelloWorld.bpmn")
     @RequiredHistoryLevel(ProcessEngineConfiguration.HISTORY_ACTIVITY)
     public void ruleUsageOfHistoryLevel() {
         RuntimeService runtimeService = processEngineRule.getRuntimeService();
