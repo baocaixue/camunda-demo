@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_17yak06" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.2.3">
+  <bpmn:process id="messageEvent" name="message event test" isExecutable="true">
+    <bpmn:startEvent id="messageStart" name="message start">
+      <bpmn:outgoing>SequenceFlow_03gvdr9</bpmn:outgoing>
+      <bpmn:messageEventDefinition messageRef="newInvoice" />
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_03gvdr9" sourceRef="messageStart" targetRef="paymentEvt" />
+    <bpmn:intermediateCatchEvent id="paymentEvt" name="payment Evt">
+      <bpmn:incoming>SequenceFlow_03gvdr9</bpmn:incoming>
+      <bpmn:messageEventDefinition messageRef="payment" />
+    </bpmn:intermediateCatchEvent>
+  </bpmn:process>
+  <bpmn:message id="newInvoice" name="newInvoiceMessage" />
+  <bpmn:message id="payment" name="paymentMessage-${execution.processBusinessKey}" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="messageEvent">
+      <bpmndi:BPMNShape id="StartEvent_01yub6u_di" bpmnElement="messageStart">
+        <dc:Bounds x="179" y="79" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="163" y="122" width="70" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_03gvdr9_di" bpmnElement="SequenceFlow_03gvdr9">
+        <di:waypoint x="215" y="97" />
+        <di:waypoint x="272" y="97" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="IntermediateCatchEvent_18rhwjd_di" bpmnElement="paymentEvt">
+        <dc:Bounds x="272" y="79" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="260" y="122" width="62" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
