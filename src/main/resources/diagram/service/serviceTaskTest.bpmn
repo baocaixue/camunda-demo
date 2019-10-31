@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1txlo51" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.2.3">
   <bpmn:process id="serviceTaskTest" name="service test" isExecutable="true">
-    <bpmn:startEvent id="startEvent" name="start">
+    <bpmn:startEvent id="startEvent" name="start" camunda:initiator = "initiator">
+      <bpmn:extensionElements>
+        <camunda:executionListener expression="#{execution.setVariable(&#39;test&#39;.concat(initiator), &#39;foo&#39;)}" event="start" />
+      </bpmn:extensionElements>
       <bpmn:outgoing>SequenceFlow_1oraa4b</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="SequenceFlow_1oraa4b" sourceRef="startEvent" targetRef="serviceTask1" />
@@ -12,12 +15,17 @@
         </camunda:field>
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1oraa4b</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_0623oof</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_113jxff</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:endEvent id="end">
-      <bpmn:incoming>SequenceFlow_0623oof</bpmn:incoming>
+    <bpmn:sequenceFlow id="SequenceFlow_113jxff" sourceRef="serviceTask1" targetRef="usetTask1" />
+    <bpmn:userTask id="usetTask1" name="userTask" camunda:assignee="isaac">
+      <bpmn:incoming>SequenceFlow_113jxff</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_18a6ave</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="EndEvent_01awvai">
+      <bpmn:incoming>SequenceFlow_18a6ave</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="SequenceFlow_0623oof" sourceRef="serviceTask1" targetRef="end" />
+    <bpmn:sequenceFlow id="SequenceFlow_18a6ave" sourceRef="usetTask1" targetRef="EndEvent_01awvai" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="serviceTaskTest">
@@ -34,12 +42,19 @@
       <bpmndi:BPMNShape id="ServiceTask_10e9v6c_di" bpmnElement="serviceTask1">
         <dc:Bounds x="270" y="57" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="EndEvent_04fhzss_di" bpmnElement="end">
-        <dc:Bounds x="492" y="79" width="36" height="36" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="SequenceFlow_0623oof_di" bpmnElement="SequenceFlow_0623oof">
+      <bpmndi:BPMNEdge id="SequenceFlow_113jxff_di" bpmnElement="SequenceFlow_113jxff">
         <di:waypoint x="370" y="97" />
-        <di:waypoint x="492" y="97" />
+        <di:waypoint x="430" y="97" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_0bxt11g_di" bpmnElement="usetTask1">
+        <dc:Bounds x="430" y="57" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_01awvai_di" bpmnElement="EndEvent_01awvai">
+        <dc:Bounds x="592" y="79" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_18a6ave_di" bpmnElement="SequenceFlow_18a6ave">
+        <di:waypoint x="530" y="97" />
+        <di:waypoint x="592" y="97" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
