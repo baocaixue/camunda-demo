@@ -1,4 +1,4 @@
-package com.isaac.camundademo.com.isaac.process_engine.assertion;
+package com.isaac.camundademo.com.isaac.process_engine.assertion.bpmn;
 
 import org.camunda.bpm.engine.task.Task;
 import org.camunda.bpm.engine.test.Deployment;

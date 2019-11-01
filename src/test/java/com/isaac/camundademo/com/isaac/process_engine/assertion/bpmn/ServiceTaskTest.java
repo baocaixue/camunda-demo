@@ -1,4 +1,4 @@
-package com.isaac.camundademo.com.isaac.process_engine.assertion;
+package com.isaac.camundademo.com.isaac.process_engine.assertion.bpmn;
 
 import org.camunda.bpm.engine.history.HistoricVariableInstance;
 import org.camunda.bpm.engine.runtime.ProcessInstance;
@@ -26,5 +26,15 @@ public class ServiceTaskTest extends ProcessEngineTestCase {
 
         variable = variables.stream().filter(var -> "testisaac".equals(var.getName())).findFirst().map(HistoricVariableInstance::getValue).orElseThrow(() -> new RuntimeException("Not Found variable"));
         assertEquals("foo", variable);
+    }
+
+    @Deployment(resources = "diagram/service/serviceTest1.bpmn")
+    public void testUndefinedServiceTask() {
+        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("undefined");
+
+        List<HistoricVariableInstance> variables = historyService.createHistoricVariableInstanceQuery().processInstanceId(processInstance.getId()).list();
+
+        HistoricVariableInstance result = variables.stream().filter(var -> "listener".equals(var.getName())).findFirst().orElseThrow(() -> new RuntimeException("not found variable"));
+        assertEquals("1", result.getValue());
     }
 }

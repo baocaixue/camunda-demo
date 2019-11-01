@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_05lvg6m" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.2.3">
+  <decision id="decisionDemo" name="Decision 1">
+    <extensionElements>
+      <biodi:bounds x="150" y="150" width="180" height="80" />
+    </extensionElements>
+    <decisionTable id="decisionTable_1">
+      <input id="input_1" label="input" camunda:inputVariable="input">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text>input</text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="output" name="output" typeRef="string" />
+      <rule id="DecisionRule_1c2nsa6">
+        <inputEntry id="UnaryTests_1klmyvu">
+          <text>"1","2","3"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ezsuzi">
+          <text>"春"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0drlhyd">
+        <inputEntry id="UnaryTests_1q233ds">
+          <text>"4","5","6","7"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1frdzcm">
+          <text>"夏"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jlcejo">
+        <inputEntry id="UnaryTests_09jeku9">
+          <text>"7","8","9"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0g3vvs6">
+          <text>“秋“</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0futuzg">
+        <inputEntry id="UnaryTests_0ekutfg">
+          <text>"10","11","12"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1oxqwjg">
+          <text>"冬"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1opy194">
+        <inputEntry id="UnaryTests_0xb96ct">
+          <text>"0"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vee8ur">
+          <text></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

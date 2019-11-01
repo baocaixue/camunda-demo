@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0ovlfwe" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.2.3">
-  <bpmn:process id="Test" name="测试流程" isExecutable="true" camunda:candidateStarterUsers="demo" camunda:taskPriority="8080">
+  <bpmn:process id="Test" name="测试流程" isExecutable="true" camunda:candidateStarterUsers="isaac" camunda:taskPriority="8080">
     <bpmn:startEvent id="startEvent" name="流程启动" camunda:initiator="initiator">
       <bpmn:extensionElements>
         <camunda:formData>

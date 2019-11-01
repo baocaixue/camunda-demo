@@ -1,4 +1,4 @@
-package com.isaac.camundademo.com.isaac.process_engine.assertion;
+package com.isaac.camundademo.com.isaac.process_engine.assertion.bpmn;
 
 import org.camunda.bpm.engine.history.HistoricVariableInstance;
 import org.camunda.bpm.engine.runtime.ProcessInstance;

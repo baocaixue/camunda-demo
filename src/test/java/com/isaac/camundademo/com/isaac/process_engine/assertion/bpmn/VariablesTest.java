@@ -1,4 +1,4 @@
-package com.isaac.camundademo.com.isaac.process_engine.assertion;
+package com.isaac.camundademo.com.isaac.process_engine.assertion.bpmn;
 
 import com.isaac.camundademo.domain.UserInfo;
 import org.camunda.bpm.engine.runtime.ProcessInstance;
