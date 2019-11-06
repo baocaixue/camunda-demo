@@ -9,6 +9,11 @@
       </bpmn:extensionElements>
       <bpmn:outgoing>SequenceFlow_12qbfr4</bpmn:outgoing>
     </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_12qbfr4" sourceRef="startEvent" targetRef="userTask" />
+    <bpmn:endEvent id="endEvent">
+      <bpmn:incoming>SequenceFlow_1bzuf6t</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1bzuf6t" sourceRef="userTask" targetRef="endEvent" />
     <bpmn:userTask id="userTask" name="userTask">
       <bpmn:extensionElements>
         <camunda:formData>
@@ -18,11 +23,6 @@
       <bpmn:incoming>SequenceFlow_12qbfr4</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1bzuf6t</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sequenceFlow id="SequenceFlow_12qbfr4" sourceRef="startEvent" targetRef="userTask" />
-    <bpmn:endEvent id="endEvent">
-      <bpmn:incoming>SequenceFlow_1bzuf6t</bpmn:incoming>
-    </bpmn:endEvent>
-    <bpmn:sequenceFlow id="SequenceFlow_1bzuf6t" sourceRef="userTask" targetRef="endEvent" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Test">
@@ -31,9 +31,6 @@
         <bpmndi:BPMNLabel>
           <dc:Bounds x="175" y="142" width="44" height="14" />
         </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="UserTask_0ouzn1p_di" bpmnElement="userTask">
-        <dc:Bounds x="330" y="77" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_12qbfr4_di" bpmnElement="SequenceFlow_12qbfr4">
         <di:waypoint x="215" y="117" />
@@ -46,6 +43,9 @@
         <di:waypoint x="430" y="117" />
         <di:waypoint x="552" y="117" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_0ouzn1p_di" bpmnElement="userTask">
+        <dc:Bounds x="330" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>

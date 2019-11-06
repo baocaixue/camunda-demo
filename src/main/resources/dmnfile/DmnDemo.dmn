@@ -6,7 +6,7 @@
     </extensionElements>
     <decisionTable id="decisionTable_1">
       <input id="input_1" label="input" camunda:inputVariable="input">
-        <inputExpression id="inputExpression_1" typeRef="string">
+        <inputExpression id="inputExpression_1" typeRef="string" expressionLanguage="">
           <text>input</text>
         </inputExpression>
       </input>

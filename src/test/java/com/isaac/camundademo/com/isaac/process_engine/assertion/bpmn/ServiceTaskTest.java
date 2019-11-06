@@ -9,6 +9,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static org.camunda.bpm.engine.test.assertions.ProcessEngineTests.*;
+
+
 public class ServiceTaskTest extends ProcessEngineTestCase {
 
     @Deployment(resources = "diagram/service/serviceTaskTest.bpmn")
