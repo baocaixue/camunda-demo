@@ -11,9 +11,11 @@ public class HelloWorldTest extends ProcessEngineTestCase {
     @Deployment(resources = "diagram/HelloWorld.bpmn")
     public void testDeployment() {
         ProcessInstance pi = runtimeService.startProcessInstanceByKey("Test");
-        assertThat(pi).isWaitingAt("userTask");
-        Task task = taskService.createTaskQuery().active().processInstanceId(pi.getId()).singleResult();
+        Task task = task("userTask", pi);
         taskService.complete(task.getId());
+        assertThat(pi).isWaitingAt("task");
+        taskService.complete(task().getId());
         assertThat(pi).isEnded();
+
     }
 }
