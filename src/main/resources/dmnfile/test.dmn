@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_1h18tzn" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.2.3">
+  <decision id="test" name="test">
+    <decisionTable id="decisionTable_1" hitPolicy="COLLECT" aggregation="MAX">
+      <input id="input_1" label="input1" camunda:inputVariable="input1">
+        <inputExpression id="inputExpression_1" typeRef="integer">
+          <text>input1</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_082t25z" label="input2" camunda:inputVariable="input2">
+        <inputExpression id="LiteralExpression_1edgesi" typeRef="string">
+          <text>input2</text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="output" name="output" typeRef="integer" />
+      <rule id="DecisionRule_0r2r9dl">
+        <inputEntry id="UnaryTests_1xeou5d">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p0xtak">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ut4vxj">
+          <text>1</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0yhjoml">
+        <inputEntry id="UnaryTests_0bt1twl">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08xrob3">
+          <text>"1"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ayy9a5">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

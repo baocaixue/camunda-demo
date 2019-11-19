@@ -69,13 +69,15 @@ public class MessageTest extends ProcessEngineTestCase {
         ProcessInstance pi = runtimeService.startProcessInstanceByKey("test");
         assertThat(pi).isWaitingAt("task","task1");
         taskService.complete(taskService.createTaskQuery().processInstanceId(pi.getId()).taskName("task1").singleResult().getId());
-        assertThat(pi).isWaitingAt("task");
+        assertThat(pi).isEnded();
     }
 
     @Deployment(resources = "diagram/message/signal_self_pickup.bpmn")
     public void testSignalSelfPick() {
         ProcessInstance pi = runtimeService.startProcessInstanceByKey("test");
+        ProcessInstance pi1 = runtimeService.startProcessInstanceByKey("test");
         taskService.complete(taskService.createTaskQuery().processInstanceId(pi.getId()).taskName("task1").singleResult().getId());
         assertThat(pi).isEnded();
+        assertThat(pi1).isWaitingAt("task1");
     }
 }
