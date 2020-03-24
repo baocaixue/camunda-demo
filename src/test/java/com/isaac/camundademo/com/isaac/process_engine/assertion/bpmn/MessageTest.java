@@ -64,12 +64,11 @@ public class MessageTest extends ProcessEngineTestCase {
     }
 
 
-    @Deployment(resources = "diagram/message/msg_self_pickup.bpmn")
+    @Deployment(resources = {"diagram/message/msg_self_pickup.bpmn","diagram/message/notify.bpmn"})
     public void testMsgSelfPick() {
         ProcessInstance pi = runtimeService.startProcessInstanceByKey("test");
-        assertThat(pi).isWaitingAt("task","task1");
-        taskService.complete(taskService.createTaskQuery().processInstanceId(pi.getId()).taskName("task1").singleResult().getId());
-        assertThat(pi).isEnded();
+        long count = runtimeService.createProcessInstanceQuery().active().count();
+        assertEquals(2, count);
     }
 
     @Deployment(resources = "diagram/message/signal_self_pickup.bpmn")

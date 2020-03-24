@@ -8,7 +8,7 @@
     <bpmn:startEvent id="StartEvent_1d37ftb">
       <bpmn:outgoing>SequenceFlow_1bm6x0m</bpmn:outgoing>
       <bpmn:timerEventDefinition>
-        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT3M</bpmn:timeDuration>
+        <bpmn:timeCycle xsi:type="bpmn:tFormalExpression">R/PT1M</bpmn:timeCycle>
       </bpmn:timerEventDefinition>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="SequenceFlow_1bm6x0m" sourceRef="StartEvent_1d37ftb" targetRef="userTask" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1gpork0" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.2.3">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1gpork0" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.2.3">
   <bpmn:process id="test" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1">
       <bpmn:outgoing>SequenceFlow_117scv8</bpmn:outgoing>
@@ -38,7 +38,7 @@
     <bpmn:intermediateThrowEvent id="IntermediateThrowEvent_1impxta">
       <bpmn:incoming>SequenceFlow_1y6hfo5</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1pgyvp0</bpmn:outgoing>
-      <bpmn:messageEventDefinition camunda:class="com.isaac.camundademo.serive.DelegateDemo" />
+      <bpmn:messageEventDefinition messageRef="Message_1aicxh2" />
     </bpmn:intermediateThrowEvent>
   </bpmn:process>
   <bpmn:message id="Message_1aicxh2" name="msg" />
