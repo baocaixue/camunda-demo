@@ -3,12 +3,15 @@ package com.isaac.camundademo.com.isaac.process_engine.assertion.bpmn;
 import org.camunda.bpm.engine.repository.ProcessDefinition;
 import org.camunda.bpm.engine.runtime.MessageCorrelationResult;
 import org.camunda.bpm.engine.runtime.ProcessInstance;
+import org.camunda.bpm.engine.task.Task;
 import org.camunda.bpm.engine.test.Deployment;
 import org.camunda.bpm.engine.test.ProcessEngineTestCase;
 
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import static org.camunda.bpm.engine.test.assertions.ProcessEngineTests.*;
 
@@ -64,17 +67,19 @@ public class MessageTest extends ProcessEngineTestCase {
     }
 
 
-    @Deployment(resources = {"diagram/message/msg_self_pickup.bpmn","diagram/message/notify.bpmn"})
+    @Deployment(resources = {"diagram/message/msg_self_pickup.bpmn"})
     public void testMsgSelfPick() {
         ProcessInstance pi = runtimeService.startProcessInstanceByKey("test");
-        long count = runtimeService.createProcessInstanceQuery().active().count();
-        assertEquals(2, count);
+        taskService.complete(taskService.createTaskQuery().processInstanceId(pi.getId()).taskName("task1").singleResult().getId());
+        runtimeService.createMessageCorrelation("msg").processInstanceId(pi.getId()).correlate();
+        assertThat(pi).isEnded();
     }
 
     @Deployment(resources = "diagram/message/signal_self_pickup.bpmn")
     public void testSignalSelfPick() {
         ProcessInstance pi = runtimeService.startProcessInstanceByKey("test");
         ProcessInstance pi1 = runtimeService.startProcessInstanceByKey("test");
+        assertThat(pi1).isWaitingAt("task", "task1");
         taskService.complete(taskService.createTaskQuery().processInstanceId(pi.getId()).taskName("task1").singleResult().getId());
         assertThat(pi).isEnded();
         assertThat(pi1).isWaitingAt("task1");

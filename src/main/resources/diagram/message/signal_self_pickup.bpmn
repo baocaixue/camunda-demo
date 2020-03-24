@@ -28,7 +28,7 @@
     </bpmn:parallelGateway>
     <bpmn:sequenceFlow id="SequenceFlow_1q7gr8a" sourceRef="ExclusiveGateway_0705dhd" targetRef="task" />
     <bpmn:sequenceFlow id="SequenceFlow_0fd6vv8" sourceRef="ExclusiveGateway_12pzdx8" targetRef="EndEvent_1q1jsj4" />
-    <bpmn:userTask id="task">
+    <bpmn:userTask id="task" name="task">
       <bpmn:incoming>SequenceFlow_1q7gr8a</bpmn:incoming>
     </bpmn:userTask>
     <bpmn:boundaryEvent id="IntermediateThrowEvent_1wfbjt3" attachedToRef="task">

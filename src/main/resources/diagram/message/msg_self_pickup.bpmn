@@ -10,7 +10,7 @@
       <bpmn:incoming>SequenceFlow_1tgqmfo</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow_1xstkhh" sourceRef="BoundaryEvent_1x9y4n9" targetRef="ExclusiveGateway_1acbggn" />
-    <bpmn:userTask id="task">
+    <bpmn:userTask id="task" name="task2">
       <bpmn:incoming>SequenceFlow_0ixqbai</bpmn:incoming>
     </bpmn:userTask>
     <bpmn:boundaryEvent id="BoundaryEvent_1x9y4n9" attachedToRef="task">
